@@ -1,0 +1,9 @@
+Phần 1 - Phân tích nguyên nhân lỗi
+Tại sao thiếu hibernate.dialect lại khiến Hibernate không thể khởi động?
+Hibernate là một framework ORM (Object-Relational Mapping), nhiệm vụ của nó là dịch các thao tác trên đối tượng Java (hoặc câu lệnh HQL/JPQL) thành các câu lệnh SQL thuần túy để gửi xuống Database.
+Tuy nhiên, mỗi hệ quản trị cơ sở dữ liệu (MySQL, PostgreSQL, Oracle, SQL Server...) lại có một "phương ngữ" (Dialect) SQL khác nhau (ví dụ: cách phân trang, các hàm xử lý chuỗi, hoặc kiểu dữ liệu đặc thù). Việc thiếu hibernate.dialect khiến Hibernate bị "mù", không biết phải dịch mã Java sang chuẩn SQL của loại Database nào, dẫn đến ứng dụng từ chối khởi động.
+
+Thuộc tính nào giúp Hibernate tự động tạo bảng?
+Đó là thuộc tính hibernate.hbm2ddl.auto. Thuộc tính này điều khiển công cụ tự động sinh DDL (Data Definition Language) của Hibernate để tạo, cập nhật hoặc xóa cấu trúc bảng (schema) từ các Entity (Java Class).
+
+Giá trị thường dùng để tự động tạo/cập nhật bảng mà không làm mất dữ liệu cũ là: update.
